@@ -9,18 +9,54 @@ public class EnermySpawner : MonoBehaviour
 
     private float[] arrPosX = { -2.2f, -1.1f, 0f, 1.1f, 2.2f };
 
+    [SerializeField]
+    private float spawnInterval = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
-        foreach (float posX in arrPosX)
-        {
-            int index = Random.Range(0, enemies.Length);
-            SpawnEnermy(posX, index);
+        startEnermyRoutine();
+    }
+
+    void startEnermyRoutine() {
+        StartCoroutine("EnermyRoutine");
+    }
+
+    IEnumerator EnermyRoutine() {
+        yield return new WaitForSeconds(3f);
+
+        float moveSpeed = 5f;
+        int spawnCount = 0;
+        int enermyIndex = 0;
+
+        while (true) {
+            foreach (float posX in arrPosX)
+            {
+                SpawnEnermy(posX, enermyIndex, moveSpeed);
+            }
+
+            spawnCount += 1;
+
+            if (spawnCount % 10 == 0) {
+                enermyIndex += 1;
+                moveSpeed += 2;
+            }
+
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    void SpawnEnermy(float posX, int index) {
+    void SpawnEnermy(float posX, int index, float moveSpeed) {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
+
+        if (Random.Range(0, 5) == 0) {
+            index ++;
+        }
+
+        if (index >= enemies.Length) {
+            index = enemies.Length - 1;
+        }
+        GameObject enermyObject = Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        Enermy enermy = enermyObject.GetComponent<Enermy>();
+        enermy.SetMoveSpeed(moveSpeed);
     }
 }

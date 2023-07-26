@@ -8,6 +8,10 @@ public class Enermy : MonoBehaviour
     private float moveSpeed = 10f;
 
     private float minY = -7;
+
+    public void SetMoveSpeed(float moveSpeed) {
+        this.moveSpeed = moveSpeed;
+    }
     // Update is called once per frame
     void Update()
     {

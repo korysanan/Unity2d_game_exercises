@@ -782,6 +782,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb27c36cc460e483b92f8c4db2a273aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1971970056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971970058}
+  - component: {fileID: 1971970057}
+  m_Layer: 0
+  m_Name: EnermySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1971970057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971970056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14241feee9bb4df4a33a38899f5711e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 2645290787968018383, guid: 2837bd536ac8244a09ab2bbe3a1d1dcb, type: 3}
+  - {fileID: 2645290787968018383, guid: 19e11a9b3b5fc4928afad45845b771ef, type: 3}
+  - {fileID: 2645290787968018383, guid: 65bf075e5aca64a748c283b1f1502466, type: 3}
+  - {fileID: 2645290787968018383, guid: f250dd98899934fd4b794075a797d69f, type: 3}
+  - {fileID: 2645290787968018383, guid: 777bd1c1a5f5d48e7ad068ff4f1bcc3b, type: 3}
+  - {fileID: 2645290787968018383, guid: 26011068a487f4663b2e25a41302e98f, type: 3}
+  - {fileID: 2645290787968018383, guid: 6a234315a9ece45839f6634fe44555b7, type: 3}
+--- !u!4 &1971970058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971970056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0.12342105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -792,3 +844,4 @@ SceneRoots:
   - {fileID: 1079159006}
   - {fileID: 528952412}
   - {fileID: 611805991}
+  - {fileID: 1971970058}

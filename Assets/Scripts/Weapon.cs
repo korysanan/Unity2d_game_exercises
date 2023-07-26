@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
 
     void Start() 
     {
-        // Destory(gameObject, 1f);
+        Destroy (gameObject, 1.0f);
     }
     // Update is called once per frame
     void Update()

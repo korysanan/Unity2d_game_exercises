@@ -47,6 +47,12 @@ public class Player : MonoBehaviour
             Instantiate(weapon, shootTransform.position, Quaternion.identity);
             lastShotTime = Time.time;
         }
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Enermy"){
+            Debug.Log("Game Over");
+            Destroy(gameObject);
+        }
     }
 }

@@ -7,6 +7,9 @@ public class EnermySpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] enemies;
 
+    [SerializeField]
+    private GameObject boss;
+
     private float[] arrPosX = { -2.2f, -1.1f, 0f, 1.1f, 2.2f };
 
     [SerializeField]
@@ -19,6 +22,10 @@ public class EnermySpawner : MonoBehaviour
 
     void startEnermyRoutine() {
         StartCoroutine("EnermyRoutine");
+    }
+
+    public void stopEnermyRoutine() {
+        StopCoroutine("EnermyRoutine");
     }
 
     IEnumerator EnermyRoutine() {
@@ -41,6 +48,12 @@ public class EnermySpawner : MonoBehaviour
                 moveSpeed += 2;
             }
 
+            if (enermyIndex >= enemies.Length){
+                SpawnBoss();
+                enermyIndex = 0;
+                moveSpeed = 5f;
+            }
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
@@ -58,5 +71,9 @@ public class EnermySpawner : MonoBehaviour
         GameObject enermyObject = Instantiate(enemies[index], spawnPos, Quaternion.identity);
         Enermy enermy = enermyObject.GetComponent<Enermy>();
         enermy.SetMoveSpeed(moveSpeed);
+    }
+
+    void SpawnBoss() {
+        Instantiate(boss, transform.position, Quaternion.identity);
     }
 }

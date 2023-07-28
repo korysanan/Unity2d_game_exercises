@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - Enermy
+  - Coin
+  - Boss
   layers:
   - Default
   - TransparentFX
